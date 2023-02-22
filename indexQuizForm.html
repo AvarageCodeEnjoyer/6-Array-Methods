@@ -99,6 +99,7 @@
         </div>
         <input type="submit" id="submit" >
       </form>
+      <div id="total"></div>
     </div>
   </div>
   <script defer>
@@ -106,16 +107,24 @@
     const formGroup = document.getElementsByClassName('formGroup')
     const submit = document.getElementById('submit')
     const correctAnswers = ["c1", "b2", "a3", "d4", "d5"]
+    const total = document.getElementById('total')
+    
     form.addEventListener("submit", e => {
       e.preventDefault()
       let score = 0
       for(let i = 0; i < formGroup.length; i++){
+        // Finds the selected radio button 
         const selectedRadio = formGroup[i].querySelector('input[type=radio]:checked')
+        const selectedLabel = formGroup[i].querySelectorAll('label')
+        // Checks if the selected radio button is the same as the id in the array correctAnswers
         if(selectedRadio && correctAnswers[i] === selectedRadio.id){
+          console.log("You got question " + (i + 1) + " correct, the answer is")
+          console.log(selectedLabel[i])
           score++
         }
       }
       console.log(score)
+      total.innerHTML = score
     })
 
   </script>
