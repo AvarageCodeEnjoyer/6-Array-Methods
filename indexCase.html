@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upper Case</title>
+  <style>
+
+
+body{
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Ubuntu', sans-serif;
+    }
+    .container{
+      margin: 0px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .innerContainer{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgb(143, 146, 188);
+      width: 700px;
+      height: 300px;
+      border-radius: 20px;
+    }
+
+    h1{
+      flex: 1
+    }
+
+    button{
+      width: 120px;
+      height: 50px;
+      margin-bottom: 10px;
+      flex: 0.2
+    }
+
+    #info{
+      flex: 1
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="innerContainer">
+      <h1 id="arrFirst"></h1>
+      <h1 id="arrSecond"></h1>
+      <button onclick="showCaseHigh()">Upper Case</button>
+      <button onclick="showCaseLow()">lower Case</button>
+    </div>
+  </div>
+  <script defer>
+    const arrLower = ['hello', 'lorem', 'help', 'chess', 'gaming']
+    const arrFirst = document.getElementById('arrFirst')
+    const arrSecond = document.getElementById('arrSecond')
+    const arrUpper = upperCase(arrLower)
+    for(let i = 0; i < arrLower.length; i++){arrFirst.innerHTML += arrLower[i] + ' '}
+
+    function upperCase(arr){
+      let arrUpper = arr.map(item => {
+        return ' ' + item.toUpperCase()
+      })
+      return arrUpper
+    }
+
+    function showCaseHigh(){
+      arrSecond.innerHTML = arrUpper
+    }
+
+    function showCaseLow(){
+      arrSecond.innerHTML = arrUpper.map(item => {
+        return ' ' + item.toLowerCase()
+      })
+    }
+/*     arrFirst.innerText = arr.map(item => {
+      item
+    }).join('') */
+  </script>
+</body>
+</html>
+
+<!-- plates of food in hero  -->

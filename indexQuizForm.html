@@ -1,41 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-      .container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+  <title>JS Quiz Form</title>
+  <style>
+    .container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Ubuntu', sans-serif;
+    }
 
-      .innerContainer{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: start;
-        width: 600px;
-        background-color: antiquewhite;
-      }
+    .innerContainer{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: start;
+      width: 600px;
+      background-color: rgb(249, 250, 215);
+      border-radius: 10px;
 
-      .formGroup{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-        width: 450px;
-      }
+    }
 
-      form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    </style>
+    .formGroup{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      width: 450px;
+    }
 
+    form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+
+    .question{
+      font-weight: 500;
+    }
+
+    .answers, .codeQ{
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    #total{
+      width: 100%;
+      height: 300px;
+      text-align: center;
+    }
+
+  </style>
 </head>
 <body>
   <div class="container">
@@ -43,88 +66,176 @@
       <form action="">
         <h1>Quiz</h1>
         <div class="formGroup">
-          <h1 class="question">Q1</h1>
-          <input type="radio" name="question1" id="a1">
-          <label for="a1"></label>
-          <input type="radio" name="question1" id="b1">
-          <label for="b1"></label>
-          <input type="radio" name="question1" id="c1">
-          <label for="c1"></label>
-          <input type="radio" name="question1" id="d1">
-          <label for="d1"></label>
+          <h1 class="question">Q1 What's the output of the following code?</h1>
+          <div class="codeQ">
+            const foo = () => {<br>
+              <!-- The unicode is used to make white space in the html -->
+              &nbsp;&nbsp;&nbsp;&nbsp;console.log(x);<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;let x = 2;<br>
+            }<br>
+            foo();
+          </div>
+          <div class="answers">
+            <input type="radio" name="question1" id="a1">
+            <label for="a1">2</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question1" id="b1">
+            <label for="b1">undefined</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question1" id="c1">
+            <label for="c1">ReferenceError</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question1" id="d1">
+            <label for="d1">null</label>
+          </div>
         </div>
         <div class="formGroup">
-          <h1 class="question">Q2</h1>
-          <input type="radio" name="question2" id="a2">
-          <label for="a2"></label>
-          <input type="radio" name="question2" id="b2">
-          <label for="b2"></label>
-          <input type="radio" name="question2" id="c2">
-          <label for="c2"></label>
-          <input type="radio" name="question2" id="d2">
-          <label for="d2"></label>
+          <h1 class="question">Q2 What is the value of result after the following code is executed?</h1>
+          <div class="codeQ">
+            const array = [1, 2, 3, 4, 5];<br>
+            const result = array.map(x => x * 2);
+          </div>
+          <div class="answers">
+            <input type="radio" name="question2" id="a2">
+            <label for="a2">[1, 2, 3, 4, 5]</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question2" id="b2">
+            <label for="b2">[2, 4, 6, 8, 10]</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question2" id="c2">
+            <label for="c2">[2, 3, 4, 5, 6]</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question2" id="d2">
+            <label for="d2">10, 20, 30, 40, 50</label>
+          </div>
         </div>
         <div class="formGroup">
-          <h1 class="question">Q3</h1>
-          <input type="radio" name="question3" id="a3">
-          <label for="a3"></label>
-          <input type="radio" name="question3" id="b3">
-          <label for="b3"></label>
-          <input type="radio" name="question3" id="c3">
-          <label for="c3"></label>
-          <input type="radio" name="question3" id="d3">
-          <label for="d3"></label>
+          <h1 class="question">Q3 What does the setTimeout() function do?</h1>
+          <div class="answers">
+            <input type="radio" name="question3" id="a3">
+            <label for="a3">It waits for a certain amount of time before executing a function.</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question3" id="b3">
+            <label for="b3">It executes a function immediately.</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question3" id="c3">
+            <label for="c3">  It sets a timer that continuously executes a function.</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question3" id="d3">
+            <label for="d3">It sets a timer that executes a function repeatedly at a specified interval.</label>
+          </div>
         </div>
         <div class="formGroup">
-          <h1 class="question">Q4</h1>
-          <input type="radio" name="question4" id="a4">
-          <label for="a4"></label>
-          <input type="radio" name="question4" id="b4">
-          <label for="b4"></label>
-          <input type="radio" name="question4" id="c4">
-          <label for="c4"></label>
-          <input type="radio" name="question4" id="d4">
-          <label for="d4"></label>
+          <h1 class="question">Q4 What is the result of the following code?</h1>
+          <div class="codeQ">
+            const a = [1, 2, 3];<br>
+            const b = [4, 5, 6];<br>
+            const c = a.concat(b);<br>
+            console.log(c);
+          </div>
+          <div class="answers">
+            <input type="radio" name="question4" id="a4">
+            <label for="a4">[1, 2, 3, [4, 5, 6]]</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question4" id="b4">
+            <label for="b4">[[1, 2, 3], [4, 5, 6]]</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question4" id="c4">
+            <label for="c4">1, 2, 3, 4, 5, 6</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question4" id="d4">
+            <label for="d4">[1, 2, 3, 4, 5, 6]</label>
+          </div>
         </div>
         <div class="formGroup">
-          <h1 class="question">Q5</h1>
-          <input type="radio" name="question5" id="a5">
-          <label for="a5"></label>
-          <input type="radio" name="question5" id="b5">
-          <label for="b5"></label>
-          <input type="radio" name="question5" id="c5">
-          <label for="c5"></label>
-          <input type="radio" name="question5" id="d5">
-          <label for="d5"></label>
+          <h1 class="question">Q5 What does the following code output?</h1>
+          <div class="codeQ">
+            const arr = [1, 2, 3];<br>
+            console.log(arr.length = 0);
+          </div>
+          <div class="answers">
+            <input type="radio" name="question5" id="a5">
+            <label for="a5">undefined</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question5" id="b5">
+            <label for="b5">0</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question5" id="c5">
+            <label for="c5">[ ]</label>
+          </div>
+          <div class="answers">
+            <input type="radio" name="question5" id="d5">
+            <label for="d5">1, 2, 3</label>
+          </div>
         </div>
-        <input type="submit" id="submit" >
+        <input type="submit" id="submit">
       </form>
       <div id="total"></div>
     </div>
   </div>
+
   <script defer>
     const form = document.querySelector('form')
     const formGroup = document.getElementsByClassName('formGroup')
     const submit = document.getElementById('submit')
-    const correctAnswers = ["c1", "b2", "a3", "d4", "d5"]
     const total = document.getElementById('total')
-    
+
+    // This array contains objects with the correct answers and the explanation for them
+    const correctAnswers = [
+      {
+        id: "c1",
+        explanation: "ReferenceError - let declarations are not hoisted, so x is not defined when it is logged."
+      },
+      {
+        id: "b2",
+        explanation: "[2, 4, 6, 8, 10] - the map() method creates a new array with the results of calling a provided function on every element in the original array."
+      },
+      {
+        id: "a3",
+        explanation: "It waits for a certain amount of time before executing a function."
+      },
+      {
+        id: "d4",
+        explanation: "[1, 2, 3, 4, 5, 6] - the concat() method joins two or more arrays and returns a new array that contains all the elements from the original arrays"
+      },
+      {
+        id: "d5",
+        explanation: "0 - arr.length = 0 sets the length of the array to 0, and returns the new length."
+      }]
+
+
+
     form.addEventListener("submit", e => {
       e.preventDefault()
       let score = 0
       for(let i = 0; i < formGroup.length; i++){
         // Finds the selected radio button 
         const selectedRadio = formGroup[i].querySelector('input[type=radio]:checked')
-        const selectedLabel = formGroup[i].querySelectorAll('label')
         // Checks if the selected radio button is the same as the id in the array correctAnswers
-        if(selectedRadio && correctAnswers[i] === selectedRadio.id){
-          console.log("You got question " + (i + 1) + " correct, the answer is")
-          console.log(selectedLabel[i])
+        if(selectedRadio && correctAnswers[i].id === selectedRadio.id){
+          console.log(`You got question ${i + 1} correct, the answer is ${correctAnswers[i].explanation}` )
           score++
+        }
+        else{
+          console.log(`sorry you got question ${i + 1} incorrect, the answer is ${correctAnswers[i].explanation}`)
         }
       }
       console.log(score)
-      total.innerHTML = score
+      total.innerText = score
     })
 
   </script>
