@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+
+    body{
+          width: 100vw;
+          height: 100vh;
+          overflow: hidden;
+          font-family: 'Ubuntu', sans-serif;
+        }
+        .container{
+          margin: 0px;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+    
+        .innerContainer{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: rgb(143, 146, 188);
+          width: 700px;
+          height: 300px;
+          border-radius: 20px;
+        }
+    
+        h1{
+          flex: 1
+        }
+    
+        button{
+          width: 120px;
+          height: 50px;
+          margin-bottom: 10px;
+          flex: 0.2
+        }
+    
+        #info{
+          flex: 1
+        }
+
+        .row{
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+        }
+      </style>
+</head>
+<body>
+  <div class="container">
+    <div class="innerContainer">
+      <select name="filter" id="select">
+        <option value="name">Name</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="grade">Grade</option>
+      </select>
+      <h3>Name: Gender: Grade:</h3>
+      <div id="people"></div>
+    </div>
+  </div>
+  <script defer>
+    const peopleDiv = document.getElementById('people')
+    const select = document.getElementById('select')
+    const people = [
+      {
+        name: 'Bob',
+        gender: 'Male',
+        grade: 82
+      },
+      {
+        name: 'Alice',
+        gender: 'Female',
+        grade: 95
+      },
+      {
+        name: 'Cathy',
+        gender: 'Female',
+        grade: 76
+      },
+      {
+        name: 'David',
+        gender: 'Male',
+        grade: 88
+      },
+      {
+        name: 'Emma',
+        gender: 'Female',
+        grade: 93
+      },
+      {
+        name: 'Frank',
+        gender: 'Male',
+        grade: 71
+      },
+      {
+        name: 'Henry',
+        gender: 'Male',
+        grade: 79
+      },
+      {
+        name: 'Grace',
+        gender: 'Female',
+        grade: 89
+      },
+      {
+        name: 'Isabelle',
+        gender: 'Female',
+        grade: 86
+      }
+    ];
+
+    select.addEventListener('change', () => {
+      let selectValue = select.value
+      let results = people.filter( person => {
+        if(selectValue === 'Male' || selectValue === 'Female'){
+          return person.gender.includes(selectValue)
+        }
+        else if(selectValue === 'name'){
+          let sortedPeople = people.sort((a, b) => a.name.localeCompare(b.name));
+          return sortedPeople
+        }
+        else if(selectValue === 'grade'){
+          let sortedGrades = people.sort((a, b) => b.grade - a.grade);
+          return sortedGrades
+        } 
+      })
+      // let sortedPeople = results.sort((a, b) => b.grade - a.grade);
+      peopleDiv.innerHTML = ''
+      // console.log(resu)
+      searched(results)
+    })
+
+    function searched(array){
+      for(person in array){
+        let name = array[person].name
+        let gender = array[person].gender
+        let grade = array[person].grade
+        let row = document.createElement('div')
+        row.classList.add('row')
+        row.innerHTML = `${name} | ${gender} | ${grade}`
+        console.log(name)
+        peopleDiv.appendChild(row)
+      }
+    }
+
+    searched(people)
+
+
+  </script>
+</body>
+</html>

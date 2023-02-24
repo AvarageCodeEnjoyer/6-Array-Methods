@@ -61,11 +61,11 @@ body{
     </div>
   </div>
   <script defer>
-    const arrLower = ['hello', 'lorem', 'help', 'chess', 'gaming']
+    const arr = ['hello', 'lorem', 'help', 'chess', 'gaming']
     const arrFirst = document.getElementById('arrFirst')
     const arrSecond = document.getElementById('arrSecond')
-    const arrUpper = upperCase(arrLower)
-    for(let i = 0; i < arrLower.length; i++){arrFirst.innerHTML += arrLower[i] + ' '}
+    const arrUpper = upperCase(arr)
+    for(let i = 0; i < arr.length; i++){arrFirst.innerHTML += arr[i] + ' '}
 
     function upperCase(arr){
       let arrUpper = arr.map(item => {
